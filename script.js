@@ -1,5 +1,8 @@
-fetch('sections/classes.html')
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById('classes').innerHTML = data;
-  });
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+
+setInterval(() => {
+  slides[index].classList.remove("active");
+  index = (index + 1) % slides.length;
+  slides[index].classList.add("active");
+}, 3500);
