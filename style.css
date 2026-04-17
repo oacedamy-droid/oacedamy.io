@@ -29,17 +29,24 @@ body {
 /* HERO */
 .cover {
   background: url('img/banner.jpeg') center/cover no-repeat;
-  height: 400px;
+  height: 420px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+.cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
 }
 
 .overlay {
+  position: relative;
   text-align: center;
-  background: rgba(0,0,0,0.6);
-  padding: 30px;
-  border-radius: 12px;
+  z-index: 1;
 }
 
 .profile {
@@ -84,6 +91,8 @@ body {
 .slider {
   position: relative;
   height: 300px;
+  max-width: 900px;
+  margin: auto;
   overflow: hidden;
   border-radius: 12px;
 }
@@ -94,11 +103,13 @@ body {
   height: 300px;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 1s;
+  transform: scale(1.05);
+  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
 }
 
 .slide.active {
   opacity: 1;
+  transform: scale(1);
 }
 
 /* FOOTER */
