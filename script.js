@@ -1,8 +1,11 @@
-const slides = document.querySelectorAll(".slide");
-let index = 0;
+// Intro animation control
+window.addEventListener("load", () => {
 
-setInterval(() => {
-  slides[index].classList.remove("active");
-  index = (index + 1) % slides.length;
-  slides[index].classList.add("active");
-}, 4000);
+  const intro = document.getElementById("intro");
+
+  // After 2.5s → fade out
+  setTimeout(() => {
+    intro.classList.add("intro-hide");
+  }, 2500);
+
+});
