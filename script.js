@@ -7,21 +7,17 @@ setInterval(() => {
   slides[index].classList.add("active");
 }, 4000);
 
-/* INTRO SAFE HANDLING */
+/* INTRO FIXED */
 window.addEventListener("load", () => {
   const intro = document.getElementById("intro");
   const body = document.body;
-
-  if (!intro) return;
 
   setTimeout(() => {
     intro.classList.add("intro-hide");
     body.classList.remove("intro-lock");
   }, 2500);
 
-  /* FAILSAFE */
   setTimeout(() => {
-    if (intro) intro.remove();
-    body.classList.remove("intro-lock");
-  }, 4000);
+    intro.remove();
+  }, 3500);
 });
