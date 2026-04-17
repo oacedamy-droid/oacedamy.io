@@ -27,12 +27,12 @@ body {
 }
 
 /* HERO */
-
 .cover {
   background: url('img/banner.jpeg') center/cover no-repeat;
   height: 420px;
   display: flex;
   align-items: center;
+  justify-content: center; /* center whole block */
   position: relative;
 }
 
@@ -43,25 +43,25 @@ body {
   background: rgba(0,0,0,0.6);
 }
 
-/* overlay full width */
 .overlay {
   position: relative;
   z-index: 1;
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-/* KEY FIX: force left alignment */
+/* HERO CONTENT */
 .hero-content {
   display: flex;
   align-items: center;
   gap: 25px;
 
-  max-width: 900px;
-  margin: 0;              /* remove auto center */
-  padding-left: 60px;     /* push from left edge */
+  max-width: 700px;
+  width: 100%;
 }
 
-/* TEXT */
+/* TEXT LEFT */
 .hero-text {
   text-align: left;
 }
