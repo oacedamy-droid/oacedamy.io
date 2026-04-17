@@ -1,265 +1,484 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oacedamy</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <!-- INTRO OVERLAY -->
-<div id="intro">
-  <div class="intro-card">
-    <img src="img/prof.jpg.jpeg" class="intro-img">
+:root {
+  --bg: #0b1220;
+  --bg-2: #0f172a;
+  --card: rgba(255, 255, 255, 0.07);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --text: #e5eefc;
+  --muted: #a6b3c9;
+  --accent: #38bdf8;
+  --accent-2: #25d366;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
 
-    <div class="intro-text">
-      <h1>Lavanya Peiris</h1>
-      <p>උසස්පෙළ සිංහල හා මීඩියා</p>
-    </div>
-  </div>
-</div>
+* {
+  box-sizing: border-box;
+}
 
-  <nav class="navbar">
-    <h2>Oacedamy</h2>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#physical">Physical</a></li>
-      <li><a href="#online">Online</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+html {
+  scroll-behavior: smooth;
+}
 
-  <section class="cover">
-    <div class="overlay">
-      <div class="hero-content glass">
-        <img src="img/prof.jpg.jpeg" class="profile" alt="Lavanya Peiris" />
+body {
+  margin: 0;
+  font-family: "Poppins", "Noto Sans Sinhala", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 30%),
+    radial-gradient(circle at top right, rgba(37, 211, 102, 0.10), transparent 24%),
+    linear-gradient(135deg, var(--bg-2), var(--bg));
+  color: var(--text);
+  overflow-x: hidden;
+}
 
-        <div class="hero-text">
-          <p class="eyebrow">උසස්පෙළ සිංහල හා මීඩියා</p>
-          <h1>Lavanya Peiris</h1>
-          <p class="hero-desc">BA. Communication & Creative Arts (Special) · University of Colombo</p>
-          <p class="hero-desc">English Diploma · SDTI</p>
-        </div>
-      </div>
-    </div>
-  </section>
+body.intro-lock {
+  overflow: hidden;
+}
 
-  <section id="about" class="section">
-    <div class="section-head">
-      <p class="section-kicker">Who we are</p>
-      <h2>About</h2>
-    </div>
+a {
+  color: inherit;
+}
 
-    <div class="card glass about-card">
-      <p>
-        Classes are designed for students who need clear theory, paper practice, speed revision,
-        and structured guidance in both Sinhala and Media.
-      </p>
-    </div>
-  </section>
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 28px;
+  background: rgba(2, 6, 23, 0.65);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
 
-  <section id="physical" class="section">
-    <div class="section-head">
-      <p class="section-kicker">Where we teach</p>
-      <h2>Physical Classes</h2>
-    </div>
+.navbar h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  letter-spacing: 0.4px;
+}
 
-    <div class="class-grid">
-      <article class="class-card glass">
-        <div class="card-top">
-          <span class="pill">Rotary Nugegoda</span>
-          <span class="pill soft">2026</span>
-        </div>
-        <h3>සිංහල 2026</h3>
-        <p class="class-type">Theory + Paper + Speed Revision</p>
-        <div class="meta"><span>Tuesday</span><strong>9.30 AM – 5.00 PM</strong></div>
-        <div class="meta"><span>Fee</span><strong>Rs. 3500</strong></div>
-        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Rotary%20Nugegoda%20Sinhala%202026%20class.%20Tuesday%209.30%20AM%20-%205.00%20PM.%20Fee%20Rs.%203500." target="_blank" rel="noopener">Join via WhatsApp</a>
-      </article>
+.navbar ul {
+  display: flex;
+  gap: 22px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-      <article class="class-card glass">
-        <div class="card-top">
-          <span class="pill">Rotary Nugegoda</span>
-          <span class="pill soft">2028</span>
-        </div>
-        <h3>සිංහල 2028</h3>
-        <p class="class-type">Theory</p>
-        <div class="meta"><span>Tuesday</span><strong>3.00 PM – 5.00 PM</strong></div>
-        <div class="meta"><span>Fee</span><strong>Rs. 2500</strong></div>
-        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Rotary%20Nugegoda%20Sinhala%202028%20class.%20Tuesday%203.00%20PM%20-%205.00%20PM.%20Fee%20Rs.%202500." target="_blank" rel="noopener">Join via WhatsApp</a>
-      </article>
+.navbar a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
 
-      <article class="class-card glass">
-        <div class="card-top">
-          <span class="pill">Rotary Nugegoda</span>
-          <span class="pill soft">2026</span>
-        </div>
-        <h3>මීඩියා 2026</h3>
-        <p class="class-type">Theory + Paper + Speed Revision</p>
-        <div class="meta"><span>Friday</span><strong>9.30 AM – 5.00 PM</strong></div>
-        <div class="meta"><span>Fee</span><strong>Rs. 3500</strong></div>
-        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Rotary%20Nugegoda%20Media%202026%20class.%20Friday%209.30%20AM%20-%205.00%20PM.%20Fee%20Rs.%203500." target="_blank" rel="noopener">Join via WhatsApp</a>
-      </article>
+.navbar a:hover {
+  color: var(--accent);
+}
 
-      <article class="class-card glass">
-        <div class="card-top">
-          <span class="pill">Rotary Nugegoda</span>
-          <span class="pill soft">2027</span>
-        </div>
-        <h3>මීඩියා 2027</h3>
-        <p class="class-type">Theory</p>
-        <div class="meta"><span>Friday</span><strong>1.00 PM – 3.00 PM</strong></div>
-        <div class="meta"><span>Fee</span><strong>Rs. 2500</strong></div>
-        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Rotary%20Nugegoda%20Media%202027%20class.%20Friday%201.00%20PM%20-%203.00%20PM.%20Fee%20Rs.%202500." target="_blank" rel="noopener">Join via WhatsApp</a>
-      </article>
+.cover {
+  position: relative;
+  min-height: 430px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("img/banner.jpeg") center/cover no-repeat;
+  overflow: hidden;
+}
 
-      <article class="class-card glass">
-        <div class="card-top">
-          <span class="pill">Rotary Nugegoda</span>
-          <span class="pill soft">2028</span>
-        </div>
-        <h3>මීඩියා 2028</h3>
-        <p class="class-type">Theory</p>
-        <div class="meta"><span>Friday</span><strong>3.00 PM – 5.00 PM</strong></div>
-        <div class="meta"><span>Fee</span><strong>Rs. 2500</strong></div>
-        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Rotary%20Nugegoda%20Media%202028%20class.%20Friday%203.00%20PM%20-%205.00%20PM.%20Fee%20Rs.%202500." target="_blank" rel="noopener">Join via WhatsApp</a>
-      </article>
+.cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(2, 6, 23, 0.55), rgba(2, 6, 23, 0.72));
+}
 
-      <article class="class-card glass">
-        <div class="card-top">
-          <span class="pill alt">Pitakotte</span>
-          <span class="pill soft">Smart Class</span>
-        </div>
-        <h3>Future Focus Academy</h3>
-        <p class="class-type">Physical Smart Classroom</p>
-        <div class="meta"><span>Friday</span><strong>6.00 PM – 8.00 PM</strong></div>
-        <div class="meta"><span>Fee</span><strong>Rs. 3500</strong></div>
-        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Future%20Focus%20Academy%20Pitakotte%20Media%202028%20class.%20Friday%206.00%20PM%20-%208.00%20PM.%20Fee%20Rs.%203500." target="_blank" rel="noopener">Join via WhatsApp</a>
-      </article>
-    </div>
-  </section>
+.overlay {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 28px 18px;
+}
 
-  <section id="online" class="section">
-    <div class="section-head">
-      <p class="section-kicker">Learn from anywhere</p>
-      <h2>Online Classes</h2>
-    </div>
+.glass {
+  background: var(--card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow);
+}
 
-    <div class="class-grid">
-      <article class="class-card glass">
-        <div class="card-top">
-          <span class="pill alt">Guru Niwasa</span>
-          <span class="pill soft">2028</span>
-        </div>
-        <h3>මීඩියා 2028</h3>
-        <p class="class-type">Theory</p>
-        <div class="meta"><span>Monday</span><strong>4.00 PM – 6.00 PM</strong></div>
-        <div class="meta"><span>Fee</span><strong>Rs. 2500</strong></div>
-        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Online%20Media%202028%20class%20at%20Guru%20Niwasa.%20Monday%204.00%20PM%20-%206.00%20PM.%20Fee%20Rs.%202500." target="_blank" rel="noopener">Join via WhatsApp</a>
-      </article>
+.hero-content {
+  width: min(920px, 100%);
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 28px;
+  border-radius: 24px;
+}
 
-      <article class="class-card glass">
-        <div class="card-top">
-          <span class="pill alt">Guru Niwasa</span>
-          <span class="pill soft">2027</span>
-        </div>
-        <h3>මීඩියා 2027</h3>
-        <p class="class-type">Theory</p>
-        <div class="meta"><span>Monday</span><strong>6.30 PM – 8.30 PM</strong></div>
-        <div class="meta"><span>Fee</span><strong>Rs. 2500</strong></div>
-        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Online%20Media%202027%20class%20at%20Guru%20Niwasa.%20Monday%206.30%20PM%20-%208.30%20PM.%20Fee%20Rs.%202500." target="_blank" rel="noopener">Join via WhatsApp</a>
-      </article>
+.profile {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 15%;
+  border: 4px solid rgba(56, 189, 248, 0.8);
+  flex: 0 0 auto;
+}
 
-      <article class="class-card glass">
-        <div class="card-top">
-          <span class="pill alt">Guru Niwasa</span>
-          <span class="pill soft">2028</span>
-        </div>
-        <h3>සිංහල 2028</h3>
-        <p class="class-type">Theory</p>
-        <div class="meta"><span>Thursday</span><strong>4.00 PM – 6.00 PM</strong></div>
-        <div class="meta"><span>Fee</span><strong>Rs. 2500</strong></div>
-        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Online%20Sinhala%202028%20class%20at%20Guru%20Niwasa.%20Thursday%204.00%20PM%20-%206.00%20PM.%20Fee%20Rs.%202500." target="_blank" rel="noopener">Join via WhatsApp</a>
-      </article>
+.hero-text {
+  text-align: left;
+}
 
-      <article class="class-card glass">
-        <div class="card-top">
-          <span class="pill alt">Guru Niwasa</span>
-          <span class="pill soft">2027</span>
-        </div>
-        <h3>සිංහල 2027</h3>
-        <p class="class-type">Theory</p>
-        <div class="meta"><span>Thursday</span><strong>6.30 PM – 8.30 PM</strong></div>
-        <div class="meta"><span>Fee</span><strong>Rs. 2500</strong></div>
-        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Online%20Sinhala%202027%20class%20at%20Guru%20Niwasa.%20Thursday%206.30%20PM%20-%208.30%20PM.%20Fee%20Rs.%202500." target="_blank" rel="noopener">Join via WhatsApp</a>
-      </article>
-    </div>
-  </section>
+.hero-text h1 {
+  margin: 0 0 8px;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
 
-  <section id="contact" class="section">
-    <div class="section-head">
-      <p class="section-kicker">Let’s talk</p>
-      <h2>Contact</h2>
-    </div>
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+}
 
-    <div class="contact-grid">
-      <div class="card glass">
-        <h3>Phone</h3>
-        <p>076 09 20 835</p>
-      </div>
+.hero-desc {
+  margin: 6px 0 0;
+  color: #e8f1ff;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
 
-      <div class="card glass">
-        <h3>Institutes</h3>
-        <ul class="clean-list">
-          <li>Rotary Nugegoda</li>
-          <li>U Win Academy – Battaramulla</li>
-          <li>Future Focus Academy – Pitakotte</li>
-          <li>Guru Niwasa Institute (Online)</li>
-        </ul>
-      </div>
+.section {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 44px 0 10px;
+}
 
-      <div class="card glass">
-        <h3>Follow us</h3>
-        <div class="socials">
-          <a href="#" target="_blank" rel="noopener">Facebook</a>
-          <a href="#" target="_blank" rel="noopener">YouTube</a>
-        </div>
-      </div>
-    </div>
-  </section>
+.section-head {
+  margin-bottom: 18px;
+}
 
-  <section class="section">
-    <div class="section-head">
-      <p class="section-kicker">Gallery</p>
-      <h2>Moments</h2>
-    </div>
+.section-kicker {
+  margin: 0 0 6px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
 
-    <div class="slider glass">
-      <div class="slide active" style="background-image:url('img/p1.jpeg')">
-        <img src="img/p1.jpeg" alt="Slide 1" />
-      </div>
-      <div class="slide" style="background-image:url('img/p2.jpeg')">
-        <img src="img/p2.jpeg" alt="Slide 2" />
-      </div>
-      <div class="slide" style="background-image:url('img/p3.jpeg')">
-        <img src="img/p3.jpeg" alt="Slide 3" />
-      </div>
-      <div class="slide" style="background-image:url('img/p4.jpeg')">
-        <img src="img/p4.jpeg" alt="Slide 4" />
-      </div>
-      <div class="slide" style="background-image:url('img/p5.jpeg')">
-        <img src="img/p5.jpeg" alt="Slide 5" />
-      </div>
-    </div>
-  </section>
+.section h2 {
+  margin: 0;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  letter-spacing: -0.02em;
+}
 
-  <footer>
-    <p>© 2026 Oacedamy</p>
-  </footer>
+.about-card {
+  padding: 22px 24px;
+  border-radius: 20px;
+  color: #edf4ff;
+  line-height: 1.8;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+.class-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.class-card {
+  padding: 20px;
+  border-radius: 22px;
+}
+
+.card-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.14);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  color: #dff5ff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.pill.soft {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.pill.alt {
+  background: rgba(37, 211, 102, 0.12);
+  border-color: rgba(37, 211, 102, 0.25);
+}
+
+.class-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+}
+
+.class-type {
+  margin: 0 0 14px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 8px 0;
+  color: #edf4ff;
+  font-size: 0.95rem;
+}
+
+.meta span {
+  color: var(--muted);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  background: linear-gradient(135deg, rgba(37, 211, 102, 0.96), rgba(21, 166, 78, 0.96));
+  color: white;
+  font-weight: 700;
+  font-size: 0.92rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.24);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.card {
+  padding: 22px 24px;
+  border-radius: 20px;
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.08rem;
+}
+
+.card p {
+  margin: 0;
+  color: #edf4ff;
+  line-height: 1.7;
+}
+
+.clean-list {
+  margin: 0;
+  padding-left: 18px;
+  color: #edf4ff;
+  line-height: 1.8;
+}
+
+.socials {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.socials a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.slider {
+  position: relative;
+  min-height: 360px;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+
+.slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  background-size: cover;
+  background-position: center;
+  filter: blur(24px) brightness(0.62);
+  transform: scale(1.08);
+}
+
+.slide img {
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+footer {
+  margin-top: 28px;
+  padding: 26px 20px 36px;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* INTRO */
+#intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("img/banner.jpeg") center/cover no-repeat;
+  perspective: 1000px;
+}
+
+#intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.62);
+}
+
+.intro-card {
+  position: relative;
+  z-index: 1;
+  width: min(920px, calc(100% - 32px));
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 28px;
+  border-radius: 24px;
+
+  opacity: 0;
+  transform: rotateY(80deg) translateY(20px) scale(0.92);
+  animation: introEnter 1.3s cubic-bezier(.2,.8,.2,1) forwards;
+}
+
+.intro-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 15%;
+  border: 4px solid rgba(56, 189, 248, 0.8);
+  flex: 0 0 auto;
+  animation: float 3s ease-in-out infinite;
+}
+
+.intro-text {
+  text-align: left;
+}
+
+.intro-text h1 {
+  margin: 0 0 8px;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.intro-text p {
+  margin: 6px 0 0;
+  color: #e8f1ff;
+  line-height: 1.6;
+}
+
+.intro-hide {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.7s ease, visibility 0s linear 0.7s;
+}
+
+@keyframes introEnter {
+  0% {
+    opacity: 0;
+    transform: rotateY(80deg) translateY(20px) scale(0.92);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg) translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@media (max-width: 900px) {
+  .class-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content,
+  .intro-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text,
+  .intro-text {
+    text-align: center;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar ul {
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .meta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
