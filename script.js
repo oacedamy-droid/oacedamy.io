@@ -6,18 +6,3 @@ setInterval(() => {
   index = (index + 1) % slides.length;
   slides[index].classList.add("active");
 }, 4000);
-
-/* INTRO FIXED */
-window.addEventListener("load", () => {
-  const intro = document.getElementById("intro");
-  const body = document.body;
-
-  setTimeout(() => {
-    intro.classList.add("intro-hide");
-    body.classList.remove("intro-lock");
-  }, 2500);
-
-  setTimeout(() => {
-    intro.remove();
-  }, 3500);
-});
