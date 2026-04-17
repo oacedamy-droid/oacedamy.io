@@ -27,11 +27,13 @@ body {
 }
 
 /* HERO */
+
 .cover {
   background: url('img/banner.jpeg') center/cover no-repeat;
   height: 420px;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .cover::before {
@@ -41,27 +43,33 @@ body {
   background: rgba(0,0,0,0.6);
 }
 
+/* overlay full width */
 .overlay {
   position: relative;
   z-index: 1;
   width: 100%;
 }
 
-/* HERO CONTENT */
+/* KEY FIX: force left alignment */
 .hero-content {
   display: flex;
   align-items: center;
-  gap: 30px;
-  margin-left: 60px;
+  gap: 25px;
+
+  max-width: 900px;
+  margin: 0;              /* remove auto center */
+  padding-left: 60px;     /* push from left edge */
 }
 
+/* TEXT */
 .hero-text {
   text-align: left;
 }
 
+/* IMAGE */
 .profile {
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   object-fit: cover;
   object-position: 50% 15%;
