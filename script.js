@@ -1,23 +1,40 @@
-/* SLIDER */
-let slides = document.querySelectorAll(".slide");
-let i = 0;
+// WAIT UNTIL DOM READY (safer than load)
+document.addEventListener("DOMContentLoaded", () => {
 
-setInterval(()=>{
-slides[i].classList.remove("active");
-i = (i+1)%slides.length;
-slides[i].classList.add("active");
-},4000);
+  /* =====================
+     SLIDER (SAFE)
+  ===================== */
+  const slides = document.querySelectorAll(".slide");
 
-/* INTRO FIX */
-window.addEventListener("load", ()=>{
-let intro = document.getElementById("intro");
+  if (slides.length > 0) {
+    let i = 0;
 
-setTimeout(()=>{
-intro.classList.add("intro-hide");
-document.body.classList.remove("intro-lock");
-},2000);
+    setInterval(() => {
+      slides[i].classList.remove("active");
+      i = (i + 1) % slides.length;
+      slides[i].classList.add("active");
+    }, 4000);
+  }
 
-setTimeout(()=>{
-intro.remove();
-},3000);
+  /* =====================
+     INTRO FIX (CRITICAL)
+  ===================== */
+  const intro = document.getElementById("intro");
+  const body = document.body;
+
+  if (intro) {
+    // Remove lock immediately if something breaks
+    body.classList.remove("intro-lock");
+
+    // Fade out
+    setTimeout(() => {
+      intro.classList.add("intro-hide");
+    }, 1800);
+
+    // HARD REMOVE (no matter what)
+    setTimeout(() => {
+      intro.remove();
+    }, 2600);
+  }
+
 });
