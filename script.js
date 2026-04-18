@@ -1,40 +1,41 @@
-// WAIT UNTIL DOM READY (safer than load)
 document.addEventListener("DOMContentLoaded", () => {
-
-  /* =====================
-     SLIDER (SAFE)
-  ===================== */
-  const slides = document.querySelectorAll(".slide");
-
-  if (slides.length > 0) {
-    let i = 0;
-
-    setInterval(() => {
-      slides[i].classList.remove("active");
-      i = (i + 1) % slides.length;
-      slides[i].classList.add("active");
-    }, 4000);
-  }
-
-  /* =====================
-     INTRO FIX (CRITICAL)
-  ===================== */
+  const slides = Array.from(document.querySelectorAll(".slide"));
   const intro = document.getElementById("intro");
   const body = document.body;
 
-  if (intro) {
-    // Remove lock immediately if something breaks
-    body.classList.remove("intro-lock");
+  // Slider
+  if (slides.length > 1) {
+    let index = 0;
 
-    // Fade out
-    setTimeout(() => {
-      intro.classList.add("intro-hide");
-    }, 1800);
-
-    // HARD REMOVE (no matter what)
-    setTimeout(() => {
-      intro.remove();
-    }, 2600);
+    setInterval(() => {
+      slides[index].classList.remove("active");
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("active");
+    }, 4000);
   }
 
+  // Intro safety
+  let introRemoved = false;
+
+  const removeIntro = () => {
+    if (introRemoved || !intro) return;
+    introRemoved = true;
+
+    intro.classList.add("intro-hide");
+    body.classList.remove("intro-lock");
+
+    window.setTimeout(() => {
+      if (intro.isConnected) intro.remove();
+    }, 750);
+  };
+
+  if (intro) {
+    // normal hide
+    window.setTimeout(removeIntro, 2200);
+
+    // hard fallback in case anything delays
+    window.setTimeout(removeIntro, 4000);
+  } else {
+    body.classList.remove("intro-lock");
+  }
 });
