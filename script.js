@@ -1,139 +1,282 @@
-/* =========================
-   INTRO LOADER (SMOOTH FADE)
-========================= */
-window.addEventListener("load", () => {
-  const intro = document.getElementById("intro");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f172a" />
+  <title>Oacedamy</title>
 
-  setTimeout(() => {
-    if (intro) {
-      intro.style.opacity = "0";
-      intro.style.transition = "opacity 0.6s ease";
-    }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 
-    document.body.classList.remove("intro-lock");
+  <noscript>
+    <style>
+      #intro { display: none !important; }
+      body { overflow: auto !important; }
+    </style>
+  </noscript>
+</head>
+<body class="intro-lock">
 
-    setTimeout(() => {
-      if (intro) intro.style.display = "none";
-    }, 600);
-  }, 1500);
-});
+  <!-- INTRO -->
+  <div id="intro" aria-hidden="true">
+    <div class="intro-card glass">
+      <img src="img/prof.jpg.jpeg" class="intro-img" alt="Lavanya Peiris">
+      <div class="intro-text">
+        <p class="eyebrow">උසස්පෙළ සිංහල හා මීඩියා</p>
+        <h1>Lavanya Peiris</h1>
+        <p>BA. Communication & Creative Arts (Special)</p>
+        <p>University of Colombo</p>
+        <p>English Diploma (SDTI)</p>
+      </div>
+    </div>
+  </div>
 
+  <!-- NAV -->
+  <nav class="navbar">
+    <h2>Oacedamy</h2>
+    <ul>
+      <li><a href="#physical">Physical</a></li>
+      <li><a href="#online">Online</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-/* =========================
-   SMOOTH SCROLL
-========================= */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
+  <!-- HERO -->
+  <section class="cover">
+    <div class="overlay">
+      <div class="hero-content glass">
+        <img src="img/prof.jpg.jpeg" class="profile" alt="Lavanya Peiris">
+        <div class="hero-text">
+          <p class="eyebrow">උසස්පෙළ සිංහල හා මීඩියා</p>
+          <h1>Lavanya Peiris</h1>
+          <p class="hero-desc">BA. Communication & Creative Arts (Special)</p>
+          <p class="hero-desc">University of Colombo</p>
+          <p class="hero-desc">English Diploma (SDTI)</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    }
-  });
-});
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="section-head">
+      <p class="section-kicker">Who we are</p>
+      <h2>About</h2>
+    </div>
 
+    <div class="card glass about-card">
+      <p>
+        Classes are designed for students who need clear theory, paper practice, speed revision,
+        and structured guidance in both Sinhala and Media.
+      </p>
+    </div>
+  </section>
 
-/* =========================
-   APPLE-STYLE SCROLL REVEAL
-========================= */
-const revealElements = document.querySelectorAll(".glass");
+  <!-- PHYSICAL -->
+  <section id="physical" class="section">
+    <div class="section-head">
+      <p class="section-kicker">Where we teach</p>
+      <h2>Physical Classes</h2>
+    </div>
 
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
-  });
-}, {
-  threshold: 0.15
-});
+    <div class="class-grid">
+      <article class="class-card glass">
+        <div class="card-top">
+          <span class="pill">Rotary Nugegoda</span>
+          <span class="pill soft">2026</span>
+        </div>
+        <h3>සිංහල 2026</h3>
+        <p class="class-type">Theory + Paper + Speed Revision</p>
+        <div class="meta"><span>Tuesday</span><strong>9.30 AM – 5.00 PM</strong></div>
+        <div class="meta"><span>Fee</span><strong>Rs. 3500</strong></div>
+        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Rotary%20Nugegoda%20Sinhala%202026%20class.%20Tuesday%209.30%20AM%20-%205.00%20PM.%20Fee%20Rs.%203500." target="_blank" rel="noopener noreferrer">Join via WhatsApp</a>
+      </article>
 
-revealElements.forEach(el => revealObserver.observe(el));
+      <article class="class-card glass">
+        <div class="card-top">
+          <span class="pill">Rotary Nugegoda</span>
+          <span class="pill soft">2028</span>
+        </div>
+        <h3>සිංහල 2028</h3>
+        <p class="class-type">Theory</p>
+        <div class="meta"><span>Tuesday</span><strong>3.00 PM – 5.00 PM</strong></div>
+        <div class="meta"><span>Fee</span><strong>Rs. 2500</strong></div>
+        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Rotary%20Nugegoda%20Sinhala%202028%20class.%20Tuesday%203.00%20PM%20-%205.00%20PM.%20Fee%20Rs.%202500." target="_blank" rel="noopener noreferrer">Join via WhatsApp</a>
+      </article>
 
+      <article class="class-card glass">
+        <div class="card-top">
+          <span class="pill">Rotary Nugegoda</span>
+          <span class="pill soft">2026</span>
+        </div>
+        <h3>මීඩියා 2026</h3>
+        <p class="class-type">Theory + Paper + Speed Revision</p>
+        <div class="meta"><span>Friday</span><strong>9.30 AM – 5.00 PM</strong></div>
+        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Rotary%20Nugegoda%20Media%202026%20class.%20Friday%209.30%20AM%20-%205.00%20PM." target="_blank" rel="noopener noreferrer">Join via WhatsApp</a>
+      </article>
 
-/* =========================
-   PARALLAX EFFECT (HERO)
-========================= */
-window.addEventListener("scroll", () => {
-  const scrollY = window.scrollY;
-  const hero = document.querySelector(".cover");
+      <article class="class-card glass">
+        <div class="card-top">
+          <span class="pill">Rotary Nugegoda</span>
+          <span class="pill soft">2027</span>
+        </div>
+        <h3>මීඩියා 2027</h3>
+        <p class="class-type">Theory</p>
+        <div class="meta"><span>Friday</span><strong>1.00 PM – 3.00 PM</strong></div>
+        <div class="meta"><span>Fee</span><strong>Rs. 2500</strong></div>
+        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Rotary%20Nugegoda%20Media%202027%20class.%20Friday%201.00%20PM%20-%203.00%20PM.%20Fee%20Rs.%202500." target="_blank" rel="noopener noreferrer">Join via WhatsApp</a>
+      </article>
 
-  if (hero) {
-    hero.style.backgroundPositionY = scrollY * 0.4 + "px";
-  }
-});
+      <article class="class-card glass">
+        <div class="card-top">
+          <span class="pill">Rotary Nugegoda</span>
+          <span class="pill soft">2028</span>
+        </div>
+        <h3>මීඩියා 2028</h3>
+        <p class="class-type">Theory</p>
+        <div class="meta"><span>Friday</span><strong>3.00 PM – 5.00 PM</strong></div>
+        <div class="meta"><span>Fee</span><strong>Rs. 2500</strong></div>
+        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Rotary%20Nugegoda%20Media%202028%20class.%20Friday%203.00%20PM%20-%205.00%20PM.%20Fee%20Rs.%202500." target="_blank" rel="noopener noreferrer">Join via WhatsApp</a>
+      </article>
 
+      <article class="class-card glass">
+        <div class="card-top">
+          <span class="pill alt">Pitakotte</span>
+          <span class="pill soft">Smart Class</span>
+        </div>
+        <h3>Future Focus Academy</h3>
+        <p class="class-type">Physical Smart Classroom</p>
+        <div class="meta"><span>Friday</span><strong>6.00 PM – 8.00 PM</strong></div>
+        <div class="meta"><span>Fee</span><strong>Rs. 3500</strong></div>
+        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Future%20Focus%20Academy%20Pitakotte%20Media%202028%20class.%20Friday%206.00%20PM%20-%208.00%20PM.%20Fee%20Rs.%203500." target="_blank" rel="noopener noreferrer">Join via WhatsApp</a>
+      </article>
+    </div>
+  </section>
 
-/* =========================
-   NAVBAR SCROLL EFFECT
-========================= */
-const navbar = document.querySelector(".navbar");
+  <!-- ONLINE -->
+  <section id="online" class="section">
+    <div class="section-head">
+      <p class="section-kicker">Learn from anywhere</p>
+      <h2>Online Classes</h2>
+    </div>
 
-window.addEventListener("scroll", () => {
-  if (!navbar) return;
+    <div class="class-grid">
+      <article class="class-card glass">
+        <div class="card-top">
+          <span class="pill alt">Guru Niwasa</span>
+          <span class="pill soft">2028</span>
+        </div>
+        <h3>මීඩියා 2028</h3>
+        <p class="class-type">Theory</p>
+        <div class="meta"><span>Monday</span><strong>4.00 PM – 6.00 PM</strong></div>
+        <div class="meta"><span>Fee</span><strong>Rs. 2500</strong></div>
+        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Online%20Media%202028%20class%20at%20Guru%20Niwasa.%20Monday%204.00%20PM%20-%206.00%20PM.%20Fee%20Rs.%202500." target="_blank" rel="noopener noreferrer">Join via WhatsApp</a>
+      </article>
 
-  if (window.scrollY > 50) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
-  }
-});
+      <article class="class-card glass">
+        <div class="card-top">
+          <span class="pill alt">Guru Niwasa</span>
+          <span class="pill soft">2027</span>
+        </div>
+        <h3>මීඩියා 2027</h3>
+        <p class="class-type">Theory</p>
+        <div class="meta"><span>Monday</span><strong>6.30 PM – 8.30 PM</strong></div>
+        <div class="meta"><span>Fee</span><strong>Rs. 2500</strong></div>
+        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Online%20Media%202027%20class%20at%20Guru%20Niwasa.%20Monday%206.30%20PM%20-%208.30%20PM.%20Fee%20Rs.%202500." target="_blank" rel="noopener noreferrer">Join via WhatsApp</a>
+      </article>
 
+      <article class="class-card glass">
+        <div class="card-top">
+          <span class="pill alt">Guru Niwasa</span>
+          <span class="pill soft">2028</span>
+        </div>
+        <h3>සිංහල 2028</h3>
+        <p class="class-type">Theory</p>
+        <div class="meta"><span>Thursday</span><strong>4.00 PM – 6.00 PM</strong></div>
+        <div class="meta"><span>Fee</span><strong>Rs. 2500</strong></div>
+        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Online%20Sinhala%202028%20class%20at%20Guru%20Niwasa.%20Thursday%204.00%20PM%20-%206.00%20PM.%20Fee%20Rs.%202500." target="_blank" rel="noopener noreferrer">Join via WhatsApp</a>
+      </article>
 
-/* =========================
-   ACTIVE NAV LINK
-========================= */
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".navbar a");
+      <article class="class-card glass">
+        <div class="card-top">
+          <span class="pill alt">Guru Niwasa</span>
+          <span class="pill soft">2027</span>
+        </div>
+        <h3>සිංහල 2027</h3>
+        <p class="class-type">Theory</p>
+        <div class="meta"><span>Thursday</span><strong>6.30 PM – 8.30 PM</strong></div>
+        <div class="meta"><span>Fee</span><strong>Rs. 2500</strong></div>
+        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Online%20Sinhala%202027%20class%20at%20Guru%20Niwasa.%20Thursday%206.30%20PM%20-%208.30%20PM.%20Fee%20Rs.%202500." target="_blank" rel="noopener noreferrer">Join via WhatsApp</a>
+      </article>
+    </div>
+  </section>
 
-window.addEventListener("scroll", () => {
-  let current = "";
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="section-head">
+      <p class="section-kicker">Let’s talk</p>
+      <h2>Contact</h2>
+    </div>
 
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 120;
-    if (window.scrollY >= sectionTop) {
-      current = section.getAttribute("id");
-    }
-  });
+    <div class="contact-grid">
+      <div class="card glass">
+        <h3>Phone</h3>
+        <p>076 09 20 835</p>
+      </div>
 
-  navLinks.forEach(link => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === "#" + current) {
-      link.classList.add("active");
-    }
-  });
-});
+      <div class="card glass">
+        <h3>Institutes</h3>
+        <ul class="clean-list">
+          <li>Rotary Nugegoda</li>
+          <li>U Win Academy – Battaramulla</li>
+          <li>Future Focus Academy – Pitakotte</li>
+          <li>Guru Niwasa Institute (Online)</li>
+        </ul>
+      </div>
 
+      <div class="card glass">
+        <h3>Follow us</h3>
+        <div class="socials">
+          <a href="#" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-/* =========================
-   GALLERY AUTO SLIDER
-========================= */
-const slides = document.querySelectorAll(".slide");
+  <!-- GALLERY -->
+  <section class="section">
+    <div class="section-head">
+      <p class="section-kicker">Gallery</p>
+      <h2>Moments</h2>
+    </div>
 
-if (slides.length > 0) {
-  let index = 0;
+    <div class="slider glass">
+      <div class="slide active" style="--bg:url('img/p1.jpeg')">
+        <img src="img/p1.jpeg" alt="Slide 1" loading="lazy" decoding="async">
+      </div>
+      <div class="slide" style="--bg:url('img/p2.jpeg')">
+        <img src="img/p2.jpeg" alt="Slide 2" loading="lazy" decoding="async">
+      </div>
+      <div class="slide" style="--bg:url('img/p3.jpeg')">
+        <img src="img/p3.jpeg" alt="Slide 3" loading="lazy" decoding="async">
+      </div>
+      <div class="slide" style="--bg:url('img/p4.jpeg')">
+        <img src="img/p4.jpeg" alt="Slide 4" loading="lazy" decoding="async">
+      </div>
+      <div class="slide" style="--bg:url('img/p5.jpeg')">
+        <img src="img/p5.jpeg" alt="Slide 5" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </section>
 
-  setInterval(() => {
-    slides[index].classList.remove("active");
-    index = (index + 1) % slides.length;
-    slides[index].classList.add("active");
-  }, 3000);
-}
+  <footer>
+    <p>© 2026 Oacedamy</p>
+  </footer>
 
-
-/* =========================
-   MOBILE MENU (READY)
-========================= */
-// Requires a button with class="menu-btn"
-const menuBtn = document.querySelector(".menu-btn");
-const navMenu = document.querySelector(".navbar ul");
-
-if (menuBtn && navMenu) {
-  menuBtn.addEventListener("click", () => {
-    navMenu.classList.toggle("open");
-  });
-}
+  <script src="script.js"></script>
+</body>
+</html>
