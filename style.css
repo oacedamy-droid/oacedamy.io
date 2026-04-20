@@ -1,566 +1,768 @@
-:root {
-  --bg: #0b1220;
-  --bg-2: #0f172a;
-  --card: rgba(255, 255, 255, 0.07);
-  --card-border: rgba(255, 255, 255, 0.12);
-  --text: #e5eefc;
-  --muted: #a6b3c9;
-  --accent: #38bdf8;
-  --accent-2: #25d366;
-  --shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family: "Poppins", "Noto Sans Sinhala", system-ui, sans-serif;
-  background:
-    radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 30%),
-    radial-gradient(circle at top right, rgba(37, 211, 102, 0.10), transparent 24%),
-    linear-gradient(135deg, var(--bg-2), var(--bg));
-  color: var(--text);
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body.intro-lock {
-  overflow: hidden;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  padding: 16px 28px;
-  background: rgba(2, 6, 23, 0.72);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.navbar h2 {
-  margin: 0;
-  font-size: 1.15rem;
-  letter-spacing: 0.4px;
-}
-
-.navbar ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 22px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: var(--text);
-  font-size: 0.95rem;
-  opacity: 0.9;
-}
-
-.navbar a:hover {
-  color: var(--accent);
-}
-
-.cover {
-  position: relative;
-  min-height: 430px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: url("img/banner.jpeg") center/cover no-repeat;
-  overflow: hidden;
-}
-
-.cover::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(2, 6, 23, 0.55), rgba(2, 6, 23, 0.72));
-}
-
-.overlay {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 28px 18px;
-}
-
-.glass {
-  background: var(--card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--card-border);
-  box-shadow: var(--shadow);
-}
-
-.hero-content {
-  width: min(920px, 100%);
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  padding: 28px;
-  border-radius: 24px;
-}
-
-.profile {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: 50% 15%;
-  border: 4px solid rgba(56, 189, 248, 0.8);
-  flex: 0 0 auto;
-}
-
-.hero-text {
-  text-align: left;
-}
-
-.hero-text h1 {
-  margin: 0 0 8px;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-}
-
-.eyebrow {
-  margin: 0 0 10px;
-  color: var(--accent);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 0.82rem;
-}
-
-.hero-desc {
-  margin: 6px 0 0;
-  color: #e8f1ff;
-  font-size: 0.98rem;
-  line-height: 1.6;
-}
-
-.section {
-  width: min(1120px, calc(100% - 32px));
-  margin: 0 auto;
-  padding: 44px 0 10px;
-}
-
-.section-head {
-  margin-bottom: 18px;
-}
-
-.section-kicker {
-  margin: 0 0 6px;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.78rem;
-  font-weight: 700;
-}
-
-.section h2 {
-  margin: 0;
-  font-size: clamp(1.4rem, 2.5vw, 2rem);
-  letter-spacing: -0.02em;
-}
-
-.about-card {
-  padding: 22px 24px;
-  border-radius: 20px;
-  color: #edf4ff;
-  line-height: 1.8;
-}
-
-.class-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.class-card {
-  padding: 20px;
-  border-radius: 22px;
-  transition: transform 0.25s ease, border-color 0.25s ease;
-}
-
-.class-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(56, 189, 248, 0.3);
-}
-
-.card-top {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-.pill {
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(56, 189, 248, 0.14);
-  border: 1px solid rgba(56, 189, 248, 0.22);
-  color: #dff5ff;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-.pill.soft {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.12);
-}
-
-.pill.alt {
-  background: rgba(37, 211, 102, 0.12);
-  border-color: rgba(37, 211, 102, 0.25);
-}
-
-.class-card h3 {
-  margin: 0 0 8px;
-  font-size: 1.25rem;
-}
-
-.class-type {
-  margin: 0 0 14px;
-  color: var(--accent);
-  font-weight: 600;
-}
-
-.meta {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  margin: 8px 0;
-  color: #edf4ff;
-  font-size: 0.95rem;
-}
-
-.meta span {
-  color: var(--muted);
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 14px;
-  padding: 10px 15px;
-  border-radius: 10px;
-  text-decoration: none;
-  background: linear-gradient(135deg, rgba(37, 211, 102, 0.96), rgba(21, 166, 78, 0.96));
-  color: white;
-  font-weight: 700;
-  font-size: 0.92rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.24);
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.card {
-  padding: 22px 24px;
-  border-radius: 20px;
-}
-
-.card h3 {
-  margin-top: 0;
-  margin-bottom: 12px;
-  font-size: 1.08rem;
-}
-
-.card p {
-  margin: 0;
-  color: #edf4ff;
-  line-height: 1.7;
-}
-
-.clean-list {
-  margin: 0;
-  padding-left: 18px;
-  color: #edf4ff;
-  line-height: 1.8;
-}
-
-.socials {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.socials a {
-  text-decoration: none;
-  font-weight: 600;
-  color: var(--accent);
-}
-
-.slider {
-  position: relative;
-  min-height: 360px;
-  overflow: hidden;
-  border-radius: 24px;
-}
-
-.slide {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 1.2s ease;
-  will-change: opacity;
-}
-
-.slide::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: var(--bg);
-  background-size: cover;
-  background-position: center;
-  filter: blur(24px) brightness(0.62);
-  transform: scale(1.08);
-}
-
-.slide img {
-  position: relative;
-  z-index: 1;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  border-radius: 16px;
-  padding: 16px;
-}
-
-.slide.active {
-  opacity: 1;
-}
-
-footer {
-  margin-top: 28px;
-  padding: 26px 20px 36px;
-  text-align: center;
-  color: var(--muted);
-}
-
-/* INTRO */
-#intro {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: url("img/banner.jpeg") center/cover no-repeat;
-  perspective: 1000px;
-  will-change: opacity, transform;
-  animation: introAutoHide 0.7s ease forwards 3.2s;
-}
-
-#intro::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(2, 6, 23, 0.62);
-}
-
-.intro-card {
-  position: relative;
-  z-index: 1;
-  width: min(920px, calc(100% - 32px));
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  padding: 28px;
-  border-radius: 24px;
-  opacity: 0;
-  transform: rotateY(80deg) translateY(20px) scale(0.92);
-  animation: introEnter 1.3s cubic-bezier(.2, .8, .2, 1) forwards;
-}
-
-.intro-img {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: 50% 15%;
-  border: 4px solid rgba(56, 189, 248, 0.8);
-  flex: 0 0 auto;
-  animation: float 3s ease-in-out infinite;
-}
-
-.intro-text {
-  text-align: left;
-}
-
-.intro-text h1 {
-  margin: 0 0 8px;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-}
-
-.intro-text p {
-  margin: 6px 0 0;
-  color: #e8f1ff;
-  line-height: 1.6;
-}
-
-.intro-hide {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.7s ease, visibility 0s linear 0.7s;
-}
-
-@keyframes introEnter {
-  0% {
-    opacity: 0;
-    transform: rotateY(80deg) translateY(20px) scale(0.92);
-    filter: blur(8px);
-  }
-  100% {
-    opacity: 1;
-    transform: rotateY(0deg) translateY(0) scale(1);
-    filter: blur(0);
-  }
-}
-
-@keyframes introAutoHide {
-  to {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-@media (max-width: 900px) {
-  .class-grid,
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-content,
-  .intro-card {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero-text,
-  .intro-text {
-    text-align: center;
-  }
-
-  .navbar {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .navbar ul {
-    gap: 14px;
-    justify-content: center;
-  }
-
-  .meta {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .profile,
-  .intro-img {
-    width: 130px;
-    height: 130px;
-  }
-
-  .slider {
-    min-height: 280px;
-  }
-}
-
-@media (max-width: 600px) {
-  .section {
-    width: min(1120px, calc(100% - 20px));
-    padding-top: 34px;
-  }
-
-  .hero-content,
-  .intro-card,
-  .card,
-  .class-card {
-    padding: 18px;
-    border-radius: 18px;
-  }
-
-  .slider {
-    min-height: 240px;
-    border-radius: 18px;
-  }
-
-  .slide img {
-    padding: 10px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-
-  #intro {
-    animation: none;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
-}
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f172a" />
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Lavanya Peiris - උසස්පෙළ සිංහල සහ මාධ්‍ය විෂයන් සඳහා භෞතික සහ Online පන්ති. BA Communication & Creative Arts (University of Colombo). 2026, 2027 සහ 2028 batches." />
+  <meta name="keywords" content="A/L Sinhala, A/L Media, Lavanya Peiris, Oacedamy, උසස්පෙළ සිංහල, උසස්පෙළ මාධ්‍ය" />
+  
+  <title>Oacedamy - Lavanya Peiris | A/L Sinhala & Media Classes</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #0b1220;
+      --bg-2: #0f172a;
+      --card: rgba(255, 255, 255, 0.07);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text: #e5eefc;
+      --muted: #a6b3c9;
+      --accent: #38bdf8;
+      --accent-2: #25d366;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    }
+    * {
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: "Poppins", "Noto Sans Sinhala", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 30%),
+        radial-gradient(circle at top right, rgba(37, 211, 102, 0.10), transparent 24%),
+        linear-gradient(135deg, var(--bg-2), var(--bg));
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    body.intro-lock {
+      overflow: hidden;
+    }
+    img {
+      display: block;
+      max-width: 100%;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 28px;
+      background: rgba(2, 6, 23, 0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .navbar h2 {
+      margin: 0;
+      font-size: 1.15rem;
+      letter-spacing: 0.4px;
+    }
+    .navbar ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+    .navbar a:hover {
+      color: var(--accent);
+    }
+    .cover {
+      position: relative;
+      min-height: 430px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url("img/banner.jpeg") center/cover no-repeat;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(2, 6, 23, 0.55), rgba(2, 6, 23, 0.72));
+    }
+    .overlay {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 28px 18px;
+    }
+    .glass {
+      background: var(--card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow);
+    }
+    .hero-content {
+      width: min(920px, 100%);
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding: 28px;
+      border-radius: 24px;
+    }
+    .profile {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: 50% 15%;
+      border: 4px solid rgba(56, 189, 248, 0.8);
+      flex: 0 0 auto;
+    }
+    .hero-text {
+      text-align: left;
+    }
+    .hero-text h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+    }
+    .hero-desc {
+      margin: 6px 0 0;
+      color: #e8f1ff;
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+    .section {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 44px 0 10px;
+    }
+    .section-head {
+      margin-bottom: 18px;
+    }
+    .section-kicker {
+      margin: 0 0 6px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .section h2 {
+      margin: 0;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      letter-spacing: -0.02em;
+    }
+    .about-card {
+      padding: 22px 24px;
+      border-radius: 20px;
+      color: #edf4ff;
+      line-height: 1.8;
+    }
+    .class-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .class-card {
+      padding: 20px;
+      border-radius: 22px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .class-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+    .card-top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.14);
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      color: #dff5ff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .pill.soft {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+    .pill.alt {
+      background: rgba(37, 211, 102, 0.12);
+      border-color: rgba(37, 211, 102, 0.25);
+    }
+    .class-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.25rem;
+    }
+    .class-type {
+      margin: 0 0 14px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 8px 0;
+      color: #edf4ff;
+      font-size: 0.95rem;
+    }
+    .meta span {
+      color: var(--muted);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 14px;
+      padding: 10px 15px;
+      border-radius: 10px;
+      text-decoration: none;
+      background: linear-gradient(135deg, rgba(37, 211, 102, 0.96), rgba(21, 166, 78, 0.96));
+      color: white;
+      font-weight: 700;
+      font-size: 0.92rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(37, 211, 102, 0.24);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .card {
+      padding: 22px 24px;
+      border-radius: 20px;
+    }
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 1.08rem;
+    }
+    .card p {
+      margin: 0;
+      color: #edf4ff;
+      line-height: 1.7;
+    }
+    .clean-list {
+      margin: 0;
+      padding-left: 18px;
+      color: #edf4ff;
+      line-height: 1.8;
+    }
+    .socials {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .socials a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .slider {
+      position: relative;
+      min-height: 360px;
+      overflow: hidden;
+      border-radius: 24px;
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+      will-change: opacity;
+    }
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: var(--bg);
+      background-size: cover;
+      background-position: center;
+      filter: blur(24px) brightness(0.62);
+      transform: scale(1.08);
+    }
+    .slide img {
+      position: relative;
+      z-index: 1;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .slide.active {
+      opacity: 1;
+    }
+    footer {
+      margin-top: 28px;
+      padding: 26px 20px 36px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    /* INTRO STYLES */
+    #intro {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url("img/banner.jpeg") center/cover no-repeat;
+      perspective: 1000px;
+      will-change: opacity, transform;
+      animation: introAutoHide 0.7s ease forwards 3.2s;
+    }
+    #intro::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(2, 6, 23, 0.62);
+    }
+    .intro-card {
+      position: relative;
+      z-index: 1;
+      width: min(920px, calc(100% - 32px));
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding: 28px;
+      border-radius: 24px;
+      opacity: 0;
+      transform: rotateY(80deg) translateY(20px) scale(0.92);
+      animation: introEnter 1.3s cubic-bezier(.2, .8, .2, 1) forwards;
+    }
+    .intro-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: 50% 15%;
+      border: 4px solid rgba(56, 189, 248, 0.8);
+      flex: 0 0 auto;
+      animation: float 3s ease-in-out infinite;
+    }
+    .intro-text {
+      text-align: left;
+    }
+    .intro-text h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+    .intro-text p {
+      margin: 6px 0 0;
+      color: #e8f1ff;
+      line-height: 1.6;
+    }
+
+    @keyframes introEnter {
+      0% {
+        opacity: 0;
+        transform: rotateY(80deg) translateY(20px) scale(0.92);
+        filter: blur(8px);
+      }
+      100% {
+        opacity: 1;
+        transform: rotateY(0deg) translateY(0) scale(1);
+        filter: blur(0);
+      }
+    }
+    @keyframes introAutoHide {
+      to {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 900px) {
+      .class-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-content,
+      .intro-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-text,
+      .intro-text {
+        text-align: center;
+      }
+      .navbar {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .navbar ul {
+        gap: 14px;
+        justify-content: center;
+      }
+      .meta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .profile,
+      .intro-img {
+        width: 130px;
+        height: 130px;
+      }
+      .slider {
+        min-height: 280px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .section {
+        width: min(1120px, calc(100% - 20px));
+        padding-top: 34px;
+      }
+      .hero-content,
+      .intro-card,
+      .card,
+      .class-card {
+        padding: 18px;
+        border-radius: 18px;
+      }
+      .slider {
+        min-height: 240px;
+        border-radius: 18px;
+      }
+      .slide img {
+        padding: 10px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      #intro {
+        animation: none;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+    }
+  </style>
+</head>
+<body class="intro-lock">
+
+  <!-- INTRO -->
+  <div id="intro" aria-hidden="true">
+    <div class="intro-card glass">
+      <img src="img/lavanya-peiris.jpg" width="280" height="280" class="intro-img" alt="Lavanya Peiris - A/L Sinhala and Media Teacher" />
+      <div class="intro-text">
+        <p class="eyebrow">උසස්පෙළ සිංහල හා මාධ්‍ය</p>
+        <h1>Lavanya Peiris</h1>
+        <p>BA. Communication & Creative Arts (Special)</p>
+        <p>University of Colombo</p>
+        <p>English Diploma (SDTI)</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <h2>Oacedamy</h2>
+    <ul>
+      <li><a href="#physical">Physical Classes</a></li>
+      <li><a href="#online">Online Classes</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="cover">
+    <div class="overlay">
+      <div class="hero-content glass">
+        <img src="img/lavanya-peiris.jpg" width="220" height="220" class="profile" alt="Lavanya Peiris - උසස්පෙළ සිංහල සහ මාධ්‍ය ගුරුවරිය" />
+        <div class="hero-text">
+          <p class="eyebrow">උසස්පෙළ සිංහල හා මාධ්‍ය</p>
+          <h1>Lavanya Peiris</h1>
+          <p class="hero-desc">BA. Communication & Creative Arts (Special)</p>
+          <p class="hero-desc">University of Colombo</p>
+          <p class="hero-desc">English Diploma (SDTI)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="section-head">
+      <p class="section-kicker">අපි ගැන</p>
+      <h2>About</h2>
+    </div>
+    <div class="card glass about-card">
+      <p>
+        Lavanya Peiris සිසුන්ට පැහැදිලි න්‍යාය, ප්‍රශ්න පත්‍ර පුහුණුව, වේගවත් නැවත අධ්‍යයනය සහ ව්‍යුහාත්මක මාර්ගෝපදේශනය ලබා දෙන උසස්පෙළ සිංහල සහ මාධ්‍ය පන්ති පවත්වයි. 
+        සිසුන්ගේ විෂය දැනුම වැඩි දියුණු කිරීමට සහ A/L විභාගයට හොඳින් සූදානම් කිරීමට විශේෂිතව නිර්මාණය කර ඇත.
+      </p>
+    </div>
+  </section>
+
+  <!-- PHYSICAL CLASSES -->
+  <section id="physical" class="section">
+    <div class="section-head">
+      <p class="section-kicker">භෞතික පන්ති</p>
+      <h2>Physical Classes</h2>
+    </div>
+    <div class="class-grid">
+
+      <article class="class-card glass">
+        <div class="card-top">
+          <span class="pill">Rotary Nugegoda</span>
+          <span class="pill soft">2026</span>
+        </div>
+        <h3>සිංහල 2026</h3>
+        <p class="class-type">Theory + Paper + Speed Revision</p>
+        <div class="meta"><span>දිනය</span><strong>ඉරිදා</strong></div>
+        <div class="meta"><span>වේලාව</span><strong>9.30 AM – 5.00 PM</strong></div>
+        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Rotary%20Nugegoda%20Sinhala%202026%20class.%20Tuesday%209.30%20AM%20-%205.00%20PM." target="_blank" rel="noopener">WhatsApp මගින් ලියාපදිංචි වන්න</a>
+      </article>
+
+      <article class="class-card glass">
+        <div class="card-top">
+          <span class="pill">Rotary Nugegoda</span>
+          <span class="pill soft">2028</span>
+        </div>
+        <h3>සිංහල 2028</h3>
+        <p class="class-type">Theory</p>
+        <div class="meta"><span>දිනය</span><strong>ඉරිදා</strong></div>
+        <div class="meta"><span>වේලාව</span><strong>3.00 PM – 5.00 PM</strong></div>
+        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Rotary%20Nugegoda%20Sinhala%202028%20class.%20Tuesday%203.00%20PM%20-%205.00%20PM." target="_blank" rel="noopener">WhatsApp මගින් ලියාපදිංචි වන්න</a>
+      </article>
+
+      <article class="class-card glass">
+        <div class="card-top">
+          <span class="pill">Rotary Nugegoda</span>
+          <span class="pill soft">2026</span>
+        </div>
+        <h3>මීඩියා 2026</h3>
+        <p class="class-type">Theory + Paper + Speed Revision</p>
+        <div class="meta"><span>දිනය</span><strong>සිකුරාදා</strong></div>
+        <div class="meta"><span>වේලාව</span><strong>9.30 AM – 5.00 PM</strong></div>
+        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Rotary%20Nugegoda%20Media%202026%20class.%20Friday%209.30%20AM%20-%205.00%20PM." target="_blank" rel="noopener">WhatsApp මගින් ලියාපදිංචි වන්න</a>
+      </article>
+
+      <article class="class-card glass">
+        <div class="card-top">
+          <span class="pill">Rotary Nugegoda</span>
+          <span class="pill soft">2027</span>
+        </div>
+        <h3>මීඩියා 2027</h3>
+        <p class="class-type">Theory</p>
+        <div class="meta"><span>දිනය</span><strong>සිකුරාදා</strong></div>
+        <div class="meta"><span>වේලාව</span><strong>1.00 PM – 3.00 PM</strong></div>
+        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Rotary%20Nugegoda%20Media%202027%20class.%20Friday%201.00%20PM%20-%203.00%20PM." target="_blank" rel="noopener">WhatsApp මගින් ලියාපදිංචි වන්න</a>
+      </article>
+
+      <article class="class-card glass">
+        <div class="card-top">
+          <span class="pill">Rotary Nugegoda</span>
+          <span class="pill soft">2028</span>
+        </div>
+        <h3>මීඩියා 2028</h3>
+        <p class="class-type">Theory</p>
+        <div class="meta"><span>දිනය</span><strong>සිකුරාදා</strong></div>
+        <div class="meta"><span>වේලාව</span><strong>3.00 PM – 5.00 PM</strong></div>
+        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Rotary%20Nugegoda%20Media%202028%20class.%20Friday%203.00%20PM%20-%205.00%20PM." target="_blank" rel="noopener">WhatsApp මගින් ලියාපදිංචි වන්න</a>
+      </article>
+
+      <article class="class-card glass">
+        <div class="card-top">
+          <span class="pill alt">Pitakotte</span>
+          <span class="pill soft">Smart Class</span>
+        </div>
+        <h3>Future Focus Academy</h3>
+        <p class="class-type">Physical Smart Classroom</p>
+        <div class="meta"><span>දිනය</span><strong>සිකුරාදා</strong></div>
+        <div class="meta"><span>වේලාව</span><strong>6.00 PM – 8.00 PM</strong></div>
+        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Future%20Focus%20Academy%20Pitakotte%20Media%202028%20class.%20Friday%206.00%20PM%20-%208.00%20PM." target="_blank" rel="noopener">WhatsApp මගින් ලියාපදිංචි වන්න</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ONLINE CLASSES -->
+  <section id="online" class="section">
+    <div class="section-head">
+      <p class="section-kicker">ඕනෑම තැනක සිට ඉගෙන ගන්න</p>
+      <h2>Online Classes</h2>
+    </div>
+    <div class="class-grid">
+
+      <article class="class-card glass">
+        <div class="card-top">
+          <span class="pill alt">Guru Niwasa</span>
+          <span class="pill soft">2028</span>
+        </div>
+        <h3>මීඩියා 2028</h3>
+        <p class="class-type">Theory</p>
+        <div class="meta"><span>දිනය</span><strong>සඳුදා</strong></div>
+        <div class="meta"><span>වේලාව</span><strong>4.00 PM – 6.00 PM</strong></div>
+        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Online%20Media%202028%20class%20at%20Guru%20Niwasa.%20Monday%204.00%20PM%20-%206.00%20PM." target="_blank" rel="noopener">WhatsApp මගින් ලියාපදිංචි වන්න</a>
+      </article>
+
+      <article class="class-card glass">
+        <div class="card-top">
+          <span class="pill alt">Guru Niwasa</span>
+          <span class="pill soft">2027</span>
+        </div>
+        <h3>මීඩියා 2027</h3>
+        <p class="class-type">Theory</p>
+        <div class="meta"><span>දිනය</span><strong>සඳුදා</strong></div>
+        <div class="meta"><span>වේලාව</span><strong>6.30 PM – 8.30 PM</strong></div>
+        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Online%20Media%202027%20class%20at%20Guru%20Niwasa.%20Monday%206.30%20PM%20-%208.30%20PM." target="_blank" rel="noopener">WhatsApp මගින් ලියාපදිංචි වන්න</a>
+      </article>
+
+      <article class="class-card glass">
+        <div class="card-top">
+          <span class="pill alt">Guru Niwasa</span>
+          <span class="pill soft">2028</span>
+        </div>
+        <h3>සිංහල 2028</h3>
+        <p class="class-type">Theory</p>
+        <div class="meta"><span>දිනය</span><strong>බ්‍රහස්පතින්දා</strong></div>
+        <div class="meta"><span>වේලාව</span><strong>4.00 PM – 6.00 PM</strong></div>
+        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Online%20Sinhala%202028%20class%20at%20Guru%20Niwasa.%20Thursday%204.00%20PM%20-%206.00%20PM." target="_blank" rel="noopener">WhatsApp මගින් ලියාපදිංචි වන්න</a>
+      </article>
+
+      <article class="class-card glass">
+        <div class="card-top">
+          <span class="pill alt">Guru Niwasa</span>
+          <span class="pill soft">2027</span>
+        </div>
+        <h3>සිංහල 2027</h3>
+        <p class="class-type">Theory</p>
+        <div class="meta"><span>දිනය</span><strong>බ්‍රහස්පතින්දා</strong></div>
+        <div class="meta"><span>වේලාව</span><strong>6.30 PM – 8.30 PM</strong></div>
+        <a class="btn" href="https://wa.me/94760920835?text=I%20want%20to%20join%20Online%20Sinhala%202027%20class%20at%20Guru%20Niwasa.%20Thursday%206.30%20PM%20-%208.30%20PM." target="_blank" rel="noopener">WhatsApp මගින් ලියාපදිංචි වන්න</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="section-head">
+      <p class="section-kicker">අප සමඟ කතා කරන්න</p>
+      <h2>Contact</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="card glass">
+        <h3>දුරකථනය</h3>
+        <p><strong>076 09 20 835</strong></p>
+      </div>
+      <div class="card glass">
+        <h3>පන්ති පැවැත්වෙන ස්ථාන</h3>
+        <ul class="clean-list">
+          <li>Rotary Nugegoda</li>
+          <li>Future Focus Academy – Pitakotte</li>
+          <li>Guru Niwasa Institute (Online)</li>
+        </ul>
+      </div>
+      <div class="card glass">
+        <h3>අනුගමනය කරන්න</h3>
+        <div class="socials">
+          <a href="#" target="_blank" rel="noopener">Facebook</a>
+          <a href="#" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section">
+    <div class="section-head">
+      <p class="section-kicker">ගැලරිය</p>
+      <h2>Moments</h2>
+    </div>
+    <div class="slider glass">
+      <div class="slide active" style="--bg:url('img/p1.jpeg')">
+        <img src="img/p1.jpeg" width="800" height="500" alt="පන්ති මොහොත" loading="lazy" decoding="async">
+      </div>
+      <div class="slide" style="--bg:url('img/p2.jpeg')">
+        <img src="img/p2.jpeg" width="800" height="500" alt="පන්ති මොහොත" loading="lazy" decoding="async">
+      </div>
+      <div class="slide" style="--bg:url('img/p3.jpeg')">
+        <img src="img/p3.jpeg" width="800" height="500" alt="පන්ති මොහොත" loading="lazy" decoding="async">
+      </div>
+      <div class="slide" style="--bg:url('img/p4.jpeg')">
+        <img src="img/p4.jpeg" width="800" height="500" alt="පන්ති මොහොත" loading="lazy" decoding="async">
+      </div>
+      <div class="slide" style="--bg:url('img/p5.jpeg')">
+        <img src="img/p5.jpeg" width="800" height="500" alt="පන්ති මොහොත" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Oacedamy | Lavanya Peiris</p>
+    <p>සිසුන්ට හොඳම මාර්ගෝපදේශනය ලබා දීමට නිර්මාණය කර ඇත.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
