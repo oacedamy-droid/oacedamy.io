@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="description" content="Oacedamy Dashboard - Class schedule, statistics and overview for Lavanya Peiris A/L Sinhala and Media classes." />
+  <title>Dashboard - Oacedamy</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <h2><a href="index.html">Oacedamy</a></h2>
+    <ul>
+      <li><a href="index.html#physical">Physical</a></li>
+      <li><a href="index.html#online">Online</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="dashboard.html" class="active-link">Dashboard</a></li>
+    </ul>
+  </nav>
+
+  <header class="dash-hero glass">
+    <div class="dash-hero-text">
+      <p class="eyebrow">පාලන පුවරුව</p>
+      <h1>Dashboard</h1>
+      <p class="hero-desc">Lavanya Peiris — A/L Sinhala &amp; Media Classes Overview</p>
+    </div>
+    <div class="dash-hero-actions">
+      <a class="btn btn-ghost" href="index.html">Visit Site</a>
+      <a class="btn" href="https://wa.me/94760920835" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="section-head">
+      <p class="section-kicker">සාරාංශය</p>
+      <h2>Overview</h2>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card glass">
+        <p class="stat-label">Total Classes</p>
+        <p class="stat-value" data-counter="10">0</p>
+        <p class="stat-trend">Physical + Online</p>
+      </div>
+      <div class="stat-card glass">
+        <p class="stat-label">Physical Classes</p>
+        <p class="stat-value" data-counter="6">0</p>
+        <p class="stat-trend">2 locations</p>
+      </div>
+      <div class="stat-card glass">
+        <p class="stat-label">Online Classes</p>
+        <p class="stat-value" data-counter="4">0</p>
+        <p class="stat-trend">Guru Niwasa</p>
+      </div>
+      <div class="stat-card glass">
+        <p class="stat-label">Active Batches</p>
+        <p class="stat-value" data-counter="3">0</p>
+        <p class="stat-trend">2026 · 2027 · 2028</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <p class="section-kicker">විෂයය අනුව</p>
+      <h2>Subject Breakdown</h2>
+    </div>
+
+    <div class="split-grid">
+      <div class="card glass breakdown-card">
+        <h3>Sinhala</h3>
+        <div class="bar-row">
+          <span>2026</span>
+          <div class="bar"><div class="bar-fill" style="--w:100%"></div></div>
+          <strong>1</strong>
+        </div>
+        <div class="bar-row">
+          <span>2027</span>
+          <div class="bar"><div class="bar-fill" style="--w:100%"></div></div>
+          <strong>1</strong>
+        </div>
+        <div class="bar-row">
+          <span>2028</span>
+          <div class="bar"><div class="bar-fill" style="--w:100%"></div></div>
+          <strong>2</strong>
+        </div>
+      </div>
+
+      <div class="card glass breakdown-card">
+        <h3>Media</h3>
+        <div class="bar-row">
+          <span>2026</span>
+          <div class="bar"><div class="bar-fill alt" style="--w:100%"></div></div>
+          <strong>1</strong>
+        </div>
+        <div class="bar-row">
+          <span>2027</span>
+          <div class="bar"><div class="bar-fill alt" style="--w:100%"></div></div>
+          <strong>2</strong>
+        </div>
+        <div class="bar-row">
+          <span>2028</span>
+          <div class="bar"><div class="bar-fill alt" style="--w:100%"></div></div>
+          <strong>3</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <p class="section-kicker">කාලසටහන</p>
+      <h2>Weekly Schedule</h2>
+    </div>
+
+    <div class="schedule glass">
+      <div class="day-row">
+        <div class="day-label">Monday<br><span>සඳුදා</span></div>
+        <div class="day-slots">
+          <div class="slot online"><strong>Media 2028</strong><span>4.00 – 6.00 PM · Online</span></div>
+          <div class="slot online"><strong>Media 2027</strong><span>6.30 – 8.30 PM · Online</span></div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-label">Thursday<br><span>බ්‍රහස්පතින්දා</span></div>
+        <div class="day-slots">
+          <div class="slot online"><strong>Sinhala 2028</strong><span>4.00 – 6.00 PM · Online</span></div>
+          <div class="slot online"><strong>Sinhala 2027</strong><span>6.30 – 8.30 PM · Online</span></div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-label">Friday<br><span>සිකුරාදා</span></div>
+        <div class="day-slots">
+          <div class="slot"><strong>Media 2026</strong><span>9.30 AM – 5.00 PM · Rotary Nugegoda</span></div>
+          <div class="slot"><strong>Media 2027</strong><span>1.00 – 3.00 PM · Rotary Nugegoda</span></div>
+          <div class="slot"><strong>Media 2028</strong><span>3.00 – 5.00 PM · Rotary Nugegoda</span></div>
+          <div class="slot alt"><strong>Future Focus</strong><span>6.00 – 8.00 PM · Pitakotte</span></div>
+        </div>
+      </div>
+      <div class="day-row">
+        <div class="day-label">Sunday<br><span>ඉරිදා</span></div>
+        <div class="day-slots">
+          <div class="slot"><strong>Sinhala 2026</strong><span>9.30 AM – 5.00 PM · Rotary Nugegoda</span></div>
+          <div class="slot"><strong>Sinhala 2028</strong><span>3.00 – 5.00 PM · Rotary Nugegoda</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <p class="section-kicker">ස්ථාන</p>
+      <h2>Locations</h2>
+    </div>
+
+    <div class="contact-grid">
+      <div class="card glass location-card">
+        <span class="pill">Physical</span>
+        <h3>Rotary Nugegoda</h3>
+        <p>Theory · Paper · Speed Revision</p>
+        <div class="loc-meta"><span>Classes</span><strong>5</strong></div>
+      </div>
+      <div class="card glass location-card">
+        <span class="pill alt">Smart Class</span>
+        <h3>Future Focus Academy</h3>
+        <p>Pitakotte — Smart Classroom</p>
+        <div class="loc-meta"><span>Classes</span><strong>1</strong></div>
+      </div>
+      <div class="card glass location-card">
+        <span class="pill alt">Online</span>
+        <h3>Guru Niwasa</h3>
+        <p>Live Online Sessions</p>
+        <div class="loc-meta"><span>Classes</span><strong>4</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <p class="section-kicker">ඉක්මන් ක්‍රියා</p>
+      <h2>Quick Actions</h2>
+    </div>
+
+    <div class="quick-grid">
+      <a class="quick-card glass" href="https://wa.me/94760920835" target="_blank" rel="noopener noreferrer">
+        <span class="quick-ico">💬</span>
+        <strong>WhatsApp Inbox</strong>
+        <span class="quick-sub">076 09 20 835</span>
+      </a>
+      <a class="quick-card glass" href="https://www.facebook.com/share/1HMCxZZUxm/" target="_blank" rel="noopener noreferrer">
+        <span class="quick-ico">📘</span>
+        <strong>Facebook Page</strong>
+        <span class="quick-sub">Posts &amp; updates</span>
+      </a>
+      <a class="quick-card glass" href="https://youtube.com/@online_academy.lk2" target="_blank" rel="noopener noreferrer">
+        <span class="quick-ico">▶️</span>
+        <strong>YouTube</strong>
+        <span class="quick-sub">Lessons &amp; revisions</span>
+      </a>
+      <a class="quick-card glass" href="admin/" >
+        <span class="quick-ico">⚙️</span>
+        <strong>Content CMS</strong>
+        <span class="quick-sub">Edit pages</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Oacedamy Dashboard | Lavanya Peiris</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('[data-counter]').forEach(el => {
+      const target = parseInt(el.dataset.counter, 10);
+      const duration = 900;
+      const start = performance.now();
+      const tick = (now) => {
+        const t = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.round(target * eased);
+        if (t < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+  </script>
+</body>
+</html>
